@@ -6,6 +6,7 @@ import {LoginPageComponent} from './login-page/login-page.component';
 import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
 import {CreatePageComponent} from './create-page/create-page.component';
 import {EditPageComponent} from './edit-page/edit-page.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 // laze load module for admin
@@ -19,6 +20,10 @@ import {EditPageComponent} from './edit-page/edit-page.component';
   ],
   imports: [
     CommonModule, // add all module
+    //
+    FormsModule,
+    ReactiveFormsModule,
+
     RouterModule.forChild([ // child module for route
       {
         //display and page on
