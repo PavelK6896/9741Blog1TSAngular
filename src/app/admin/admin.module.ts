@@ -1,12 +1,15 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+
 import {AdminLayoutComponent} from './shared/components/admin-layout/admin-layout.component';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
 import {CreatePageComponent} from './create-page/create-page.component';
 import {EditPageComponent} from './edit-page/edit-page.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AuthService} from "./shared/services/auth.service";
+import {SharedModule} from "../shared/shared.module";
 
 
 // laze load module for admin
@@ -19,6 +22,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     EditPageComponent
   ],
   imports: [
+
+    SharedModule, // work to http
     CommonModule, // add all module
     //
     FormsModule,
@@ -37,7 +42,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
       }
     ])
   ],
-  exports: [RouterModule] // экспортируем модули
+  exports: [RouterModule], // экспортируем модули
+  providers: [AuthService],
 })
 export class AdminModule {
 
