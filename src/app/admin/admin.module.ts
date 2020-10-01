@@ -44,7 +44,7 @@ import {AuthGuard} from "./shared/services/auth.guard";
     ])
   ],
   exports: [RouterModule], // экспортируем модули
-  providers: [AuthService, AuthGuard],
+  providers: [AuthGuard], // регистрация в локальном модуле
 })
 export class AdminModule {
 

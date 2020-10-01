@@ -31,6 +31,8 @@ export class LoginPageComponent implements OnInit {
       // проверям инфо по ключю
       if(param['loginAgain']){
         this.message = 'Пожалуйста, ввойдите'
+      }else if(param['authFailed']){
+        this.message = 'Сессия истекла. Ввойдите.'
       }
 
 
