@@ -14,7 +14,7 @@ export class DashboardPageComponent implements OnInit {
   }
 
   test() {
-
     console.log(this.auth.token)
   }
+
 }

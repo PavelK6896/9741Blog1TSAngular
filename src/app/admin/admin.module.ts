@@ -10,6 +10,7 @@ import {CreatePageComponent} from './create-page/create-page.component';
 import {EditPageComponent} from './edit-page/edit-page.component';
 import {AuthService} from "./shared/services/auth.service";
 import {SharedModule} from "../shared/shared.module";
+import {AuthGuard} from "./shared/services/auth.guard";
 
 
 // laze load module for admin
@@ -35,15 +36,15 @@ import {SharedModule} from "../shared/shared.module";
         path: '', component: AdminLayoutComponent, children: [
           {path: '', redirectTo: '/admin/login', pathMatch: 'full'},//1
           {path: 'login', component: LoginPageComponent},//1
-          {path: 'dashboard', component: DashboardPageComponent},//2
-          {path: 'create', component: CreatePageComponent},//3
-          {path: 'post/:id/edit', component: EditPageComponent}//4
+          {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},//2
+          {path: 'create', component: CreatePageComponent, canActivate: [AuthGuard]},//3
+          {path: 'post/:id/edit', component: EditPageComponent, canActivate: [AuthGuard]}//4
         ]
       }
     ])
   ],
   exports: [RouterModule], // экспортируем модули
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
 })
 export class AdminModule {
 
