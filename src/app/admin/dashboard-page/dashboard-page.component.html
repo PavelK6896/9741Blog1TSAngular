@@ -1,5 +1,5 @@
 <p>dashboard-page works!</p>
-<button (click)="test()">test</button>
+<button (click)="testToken()">testToken</button>
 
 <!--//страный синтаксии на условие но еще моде есть ng show -->
 <div *ngIf="posts.length; else loading ">
@@ -24,7 +24,7 @@
       <td>{{idx}}</td>
       <td>{{post.author}}</td>
       <td>{{post.title}}</td>
-      <td>{{post.date | date:'medium'}}</td>
+      <td>{{post.date | date:'medium':null:'ru' }}</td>
       <td>
         <button
           class="btn btn-link open"
